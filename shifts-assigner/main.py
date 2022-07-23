@@ -1,5 +1,6 @@
 import argparse
 
+import shifts_assigner
 from configuration import configuration_parser
 
 
@@ -12,6 +13,7 @@ def main():
     print("Parsing the configuration")
     configuration = configuration_parser.parse(args.configuration)
     print("Start assigning the shifts")
+    shifts_assigner.assign(configuration)
 
 
 if __name__ == "__main__":

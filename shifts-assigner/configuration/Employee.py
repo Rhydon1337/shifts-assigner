@@ -1,10 +1,9 @@
 from dataclasses import dataclass
-
-from configuration.Date import Date
+from datetime import datetime
 
 
 @dataclass
 class Employee:
     name: str
     max_number_of_shifts: int
-    unavailable_dates: [Date]
+    unavailable_dates: [datetime]

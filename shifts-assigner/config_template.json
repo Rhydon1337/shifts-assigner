@@ -1,0 +1,40 @@
+{
+  "employees": [
+    {
+      "name": "a",
+      "max_number_of_shifts": 2,
+      "unavailable_dates": [
+        "20/8/2022",
+        "12/8/2022"
+      ]
+    },
+    {
+      "name": "b",
+      "unavailable_dates": [
+        "28/8/2022"
+      ]
+    },
+    {
+      "name": "c",
+      "unavailable_dates": []
+    },
+    {
+      "name": "d",
+      "unavailable_dates": []
+    }
+  ],
+  "default_max_number_of_shifts_per_employee": 5,
+  "free_days": [
+    "Friday",
+    "Saturday"
+  ],
+  "start_shift_date": "1/8/2022",
+  "end_shift_date": "31/8/2022",
+  "number_of_shifts_per_day": {
+    "Sunday": 1,
+    "Monday": 1,
+    "Tuesday": 1,
+    "Wednesday": 1,
+    "Thursday": 1
+  }
+}

@@ -10,7 +10,7 @@ def main():
     args = parser.parse_args()
 
     print("Parsing the configuration")
-    configuration_parser.parse(args.configuration)
+    configuration = configuration_parser.parse(args.configuration)
     print("Start assigning the shifts")
 
 

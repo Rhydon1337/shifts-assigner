@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from Date import Date
+from configuration.Date import Date
 
 
 @dataclass

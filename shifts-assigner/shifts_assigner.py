@@ -17,7 +17,7 @@ class WorkDay:
 
 def create_work_day(day: datetime, number_of_shifts_per_day: dict) -> WorkDay:
     """
-    Create work day from date and number of shifts that there are in this day
+    Create a work day from date and number of shifts that there are in the day
     :param day: the date of the work day
     :param number_of_shifts_per_day: the number of shifts that there are in this specific work day
     :return: WorkDay object
@@ -53,11 +53,12 @@ def create_work_day_calendar(start_shift_date: datetime, end_shift_date: datetim
 
 def sort_available_employees_combination(available_employees_combination: [(Employee,)]):
     """
-    Sort all available employees by the nunmber of shifts that they currently have.
-    The order is from the maximum to the minimum, because we want to assign to shift someone that has more
+
+    Sort all the available employees by the number of shifts that they currently have.
+    The order is from the maximum to the minimum, because we want to assign to shift to someone that has more
     shifts available.
 
-    :param available_employees_combination: all available shifts combination
+    :param available_employees_combination: all available shifts combinations
     example:
     [('Adir', 'Dan'), ('Adir', 'Yohai'), ('Adir', 'John'), ('Dan', 'Yohai'), ('Dan', 'John'), ('Yohai', 'John')]
 
@@ -78,7 +79,7 @@ def sort_available_employees_combination(available_employees_combination: [(Empl
 
 def get_available_employees_for_shift(work_day: WorkDay, all_employees: [Employee]):
     """
-    Get a work day and all employees and return all employees that available on that work day
+    Get a workday and all employees and return all employees that are available on that work day
     """
     available_employees = []
     for employee in all_employees:
@@ -121,9 +122,9 @@ def assign(configuration: Configuration) -> [WorkDay]:
         For Example:
         available_employees = ["Adir", "Dan", "Yohai", "John"]
         Today workday number of shifts is 2.
-        It means we need for today shifts:
+        It means that we need for today shifts:
         [('Adir', 'Dan'), ('Adir', 'Yohai'), ('Adir', 'John'), ('Dan', 'Yohai'), ('Dan', 'John'), ('Yohai', 'John')]
-        And if number of shifts is 3.
+        And if the number of shifts is 3.
         [('Adir', 'Dan', 'Yohai'), ('Adir', 'Dan', 'John'), ('Adir', 'Yohai', 'John'), ('Dan', 'Yohai', 'John')]
         """
         possible_employees_shifts_positions_from_all_available_employees = list(

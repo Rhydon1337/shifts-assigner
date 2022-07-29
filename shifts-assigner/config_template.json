@@ -17,11 +17,21 @@
     {
       "name": "John",
       "unavailable_dates": [
-        "28/8/2022"
       ]
     },
     {
       "name": "David",
+      "max_number_of_shifts": 1,
+      "unavailable_dates": [
+      ]
+    },
+    {
+      "name": "Adir",
+      "unavailable_dates": [
+      ]
+    },
+    {
+      "name": "Greg",
       "unavailable_dates": [
       ]
     }
@@ -34,9 +44,9 @@
   "start_shift_date": "28/8/2022",
   "end_shift_date": "31/8/2022",
   "number_of_shifts_per_day": {
-    "Sunday": 1,
+    "Sunday": 3,
     "Monday": 1,
-    "Tuesday": 4,
+    "Tuesday": 1,
     "Wednesday": 1,
     "Thursday": 1
   }

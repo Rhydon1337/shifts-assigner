@@ -51,6 +51,31 @@ def create_work_day_calendar(start_shift_date: datetime, end_shift_date: datetim
     return work_days
 
 
+def sort_available_employees_combination(available_employees_combination: [(Employee,)]):
+    """
+    Sort all available employees by the nunmber of shifts that they currently have.
+    The order is from the maximum to the minimum, because we want to assign to shift someone that has more
+    shifts available.
+
+    :param available_employees_combination: all available shifts combination
+    example:
+    [('Adir', 'Dan'), ('Adir', 'Yohai'), ('Adir', 'John'), ('Dan', 'Yohai'), ('Dan', 'John'), ('Yohai', 'John')]
+
+    :return: the sorted list
+    """
+
+    def sum_employees_number_of_shifts(employees: (Employee,)):
+        overall_number_of_shifts = 0
+
+        for employee in employees:
+            overall_number_of_shifts += employee.number_of_shifts
+
+        return overall_number_of_shifts
+
+    return sorted(available_employees_combination, key=lambda employees: sum_employees_number_of_shifts(employees),
+                  reverse=True)
+
+
 def get_available_employees_for_shift(work_day: WorkDay, all_employees: [Employee]):
     """
     Get a work day and all employees and return all employees that available on that work day
@@ -103,6 +128,11 @@ def assign(configuration: Configuration) -> [WorkDay]:
         """
         possible_employees_shifts_positions_from_all_available_employees = list(
             combinations(available_employees, work_day.number_of_shifts))
+
+        # We want that each employee will get equal amount of shifts.
+        # Then, we sort the combination by the overall number of shifts
+        possible_employees_shifts_positions_from_all_available_employees = \
+            sort_available_employees_combination(possible_employees_shifts_positions_from_all_available_employees)
 
         for possible_employees_shifts_position in possible_employees_shifts_positions_from_all_available_employees:
             # For each combination assign the employees for the workday
